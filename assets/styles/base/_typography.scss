@@ -28,6 +28,10 @@ h2 {
   text-align: center;
   color: $fourth;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   @include respondTo(md) {
     text-align: left;
   }

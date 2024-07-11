@@ -23,6 +23,7 @@
         </p>
     </section>
 
+    {% set nbLeaderboards = 0 %}
     {% for mode, leaderboard in leaderboards %}
         {% set modeName = '' %}
         {% if mode == 'debutant' %}
@@ -33,6 +34,7 @@
             {% set modeName = 'Expert' %}
         {% endif %}
         {% if leaderboard %}
+            {% set nbLeaderboards = nbLeaderboards + 1 %}
             <section class="app-section app-text">
                 <h2>Mode {{ modeName }}</h2>
 
@@ -59,4 +61,30 @@
             </section>
         {% endif %}
     {% endfor %}
+
+    {% if nbLeaderboards == 0 %}
+        <section class="app-section app-text">
+            <h2>Aucune partie pour l'instant&nbsp;!</h2>
+
+            {% if not is_granted("ROLE_ADMIN") %}
+                <div class="buttons">
+                    {% if not app.user %}
+                        <p>
+                            <a href="{{ path('app_login') }}" class="app-btn">Connecte-toi</a>
+                        </p>
+
+                        <p>
+                            <a href="{{ path('app_register') }}" class="app-btn">ou Inscris-toi</a>
+                        </p>
+                    {% elseif not is_granted("ROLE_ADMIN") %}
+                        <div class="buttons">
+                            <p>
+                                <a href="{{ path('app_game_home') }}" class="app-btn">Nouvelle partie</a>
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </section>
+    {% endif %}
 {% endblock %}

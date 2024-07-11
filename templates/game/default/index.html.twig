@@ -12,29 +12,29 @@
 
     {% if not app.user %}
         <div class="app-alert warning">
-            Vous devez
+            Tu dois
             <a href="{{ path('app_login') }}">être connecté</a>
             pour jouer&nbsp;!
         </div>
     {% else %}
         {% if is_granted("ROLE_ADMIN") %}
             <div class="app-alert warning">
-                Vous ne pouvez pas jouer en tant qu'administrateur !
+                Tu ne peux pas jouer en tant qu'administrateur !
                 <a href="{{ path('app_logout') }}">Déconnexion</a>
             </div>
         {% endif %}
     {% endif %}
 
     <section class="app-section app-text">
-        <h2>Prêt à Tester Votre Mémoire de Dresseur&nbsp;? Choisissez Votre Mode&nbsp;!</h2>
+        <h2>Prêt à tester ta mémoire de Dresseur&nbsp;? Choisis ton mode&nbsp;!</h2>
 
         <p>
-            Que la chasse aux Pokémon commence&nbsp;! Sélectionnez votre niveau de défi et plongez dans une nouvelle
-            aventure. Pour les Dresseurs en herbe, commencez doucement avec le mode Débutant et ses 4 cartes, parfait
-            pour réveiller votre mémoire encore plus vite qu'un Évoli sous une cascade. Prêt à monter en puissance&nbsp;?
-            Le mode Avancé vous attend avec ses 16 cartes, de quoi mettre à l'épreuve même les plus fins stratèges. Mais
-            seuls les vrais Maîtres Pokémon oseront affronter le mode Expert et ses 36 cartes. À vous de prouver que
-            votre mémoire est aussi acérée qu'un Dracaufeu en pleine bataille&nbsp;!
+            Que la chasse aux Pokémon commence&nbsp;! Sélectionne ton niveau de défi et plonge dans une nouvelle
+            aventure. Si tu es un Dresseur en herbe, commence doucement avec le mode Débutant et ses 4 cartes, parfait
+            pour réveiller ta mémoire encore plus vite qu'un Évoli sous une cascade. Prêt à monter en puissance&nbsp;?
+            Le mode Avancé t'attend avec ses 16 cartes, de quoi mettre à l'épreuve même les plus fins stratèges. Mais
+            seuls les vrais Maîtres Pokémon oseront affronter le mode Expert et ses 36 cartes. À toi de prouver que
+            ta mémoire est aussi acérée qu'un Dracaufeu en pleine bataille&nbsp;!
         </p>
 
         <div class="buttons">

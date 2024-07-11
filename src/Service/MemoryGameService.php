@@ -21,12 +21,19 @@ class MemoryGameService
     public function getPokemonsForMemoryGame(int $limit): array
     {
         $pokemonRepository = $this->entityManager->getRepository(Pokemon::class);
-        $pokemons = $pokemonRepository->findBy([], null, $limit / 2);
+        $allPokemons = $pokemonRepository->findAll();
+
+        if(count($allPokemons) < $limit / 2) {
+            throw new \RuntimeException('Not enough Pokémon to start the game.');
+        }
+
+        shuffle($allPokemons);
+        $pokemons = array_slice($allPokemons, 0, $limit / 2);
 
         $pairs = [];
         foreach($pokemons as $pokemon) {
             $pairs[] = $pokemon;
-            $pairs[] = $pokemon;
+            $pairs[] = clone $pokemon;
         }
 
         shuffle($pairs);
