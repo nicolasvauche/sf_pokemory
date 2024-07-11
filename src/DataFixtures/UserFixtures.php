@@ -29,14 +29,14 @@ class UserFixtures extends Fixture
         $player = new Player();
         $player->setEmail('player@pokemory.com')
             ->setPassword($this->passwordHasher->hashPassword($player, 'player'))
-            ->setPseudo('nicolas')
+            ->setPseudo('Joueur 1')
             ->setActive(true);
         $manager->persist($player);
 
         $player = new Player();
         $player->setEmail('player2@pokemory.com')
             ->setPassword($this->passwordHasher->hashPassword($player, 'player'))
-            ->setPseudo('bob')
+            ->setPseudo('Joueur 2')
             ->setActive(true);
         $manager->persist($player);
 
