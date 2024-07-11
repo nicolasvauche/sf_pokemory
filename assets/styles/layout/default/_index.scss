@@ -8,12 +8,12 @@ html {
 
     @import "./header";
 
-    @import "./navigation", "./usernavigation";
+    @import "./navigation";
 
     @import "./main";
 
     @import "./footer";
 
-    @import "../../pages/home", "../../pages/game", "../../pages/admin";
+    @import "../../pages/home", "../../pages/admin";
   }
 }

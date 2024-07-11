@@ -1,9 +1,0 @@
-<nav class="app-usernavigation">
-    {% if app.user %}
-        <a href="{{ path('app_logout') }}" onclick="return window.confirm('Vous partez ?')">Déconnexion</a>
-    {% else %}
-        <a href="{{ path('app_login') }}" {% if app.request.get('_route') == 'app_login' %}class="active"{% endif %}>
-            Connexion
-        </a>
-    {% endif %}
-</nav>

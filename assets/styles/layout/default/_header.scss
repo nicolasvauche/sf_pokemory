@@ -2,17 +2,19 @@
   position: sticky;
   top: 0;
   z-index: 9997;
-  @include displayFlex(space-between, center);
+  @include displayFlex(center, center);
   padding: 0.5rem 1rem;
   background-color: $white;
 
   @include respondTo(md) {
+    @include displayFlex(space-between, center, 1.5rem);
     padding: 0.25rem 1.5rem;
   }
 
   .sitename {
+    padding: 0 1rem;
     font-family: $font-secondary;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: $fourth;
     text-shadow: 2px 2px 0 $primary,
     4px 4px 0 $primary,

@@ -20,9 +20,7 @@ class PlayController extends AbstractController
             return $this->redirectToRoute('app_game_home');
         }
 
-        if($this->isGranted("ROLE_ADMIN")) {
-            $this->addFlash('warning', "Vous ne pouvez pas jouer en tant qu'administrateur !");
-
+        if(!$this->getUser() || $this->isGranted("ROLE_ADMIN")) {
             return $this->redirectToRoute('app_game_home');
         }
 

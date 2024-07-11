@@ -1,12 +1,45 @@
 <nav class="app-navigation">
     <a href="{{ path('app_home') }}" {% if app.request.get('_route') == 'app_home' %}class="active"{% endif %}>
+        {{ ux_icon('pixelarticons:home', {class: 'icon'}) }}
         Accueil
     </a>
-    <a href="{{ path('app_game_home') }}" {% if 'app_game_' in app.request.get('_route') %}class="active"{% endif %}>
-        Jouer
-    </a>
+
+    {% if app.user and not is_granted("ROLE_ADMIN") %}
+        <a href="{{ path('app_game_home') }}"
+           {% if 'app_game_' in app.request.get('_route') %}class="active"{% endif %}>
+            {{ ux_icon('pixelarticons:gamepad', {class: 'icon'}) }}
+            Jouer
+        </a>
+    {% endif %}
+
+    {% if is_granted("ROLE_ADMIN") %}
+        <a href="{{ path('app_admin_pokemon') }}"
+           {% if app.request.get('_route') == 'app_admin_pokemon' %}class="active"{% endif %}>
+            {{ ux_icon('pixelarticons:downasaur', {class: 'icon'}) }}
+            Pokémons
+        </a>
+    {% endif %}
+
     <a href="{{ path('app_leaderboard') }}"
        {% if app.request.get('_route') == 'app_leaderboard' %}class="active"{% endif %}>
-        Classement
+        {{ ux_icon('pixelarticons:chart-bar', {class: 'icon'}) }}
+        Scores
     </a>
+
+    {% if app.user %}
+        <a href="{{ path('app_logout') }}" onclick="return window.confirm('Vous partez ?')">
+            {{ ux_icon('pixelarticons:logout', {class: 'icon'}) }}
+            Quitter
+        </a>
+    {% else %}
+        <a href="{{ path('app_login') }}" {% if app.request.get('_route') == 'app_login' %}class="active"{% endif %}>
+            {{ ux_icon('pixelarticons:logout', {class: 'icon'}) }}
+            Connexion
+        </a>
+
+        <a href="#" {% if app.request.get('_route') == 'app_register' %}class="active"{% endif %}>
+            {{ ux_icon('pixelarticons:user-plus', {class: 'icon'}) }}
+            Inscription
+        </a>
+    {% endif %}
 </nav>

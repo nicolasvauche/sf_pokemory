@@ -11,13 +11,15 @@
     left: initial;
     right: initial;
     bottom: initial;
+    flex: 2;
   }
 
   & > a {
+    @include displayFlex(center, center, 0.25rem, column);
     flex: 1;
-    padding: 1.5rem 0.5rem;
+    padding: 0.5rem;
     font-family: $font-third;
-    font-size: 0.85rem;
+    font-size: 0.5rem;
     text-decoration: none;
     text-align: center;
     color: $primary;
@@ -30,10 +32,15 @@
     }
 
     @include respondTo(md) {
+      @include displayFlex(center, center, 0.5rem, row);
       padding: 1rem 1.5rem;
-      margin: 0 1.5rem;
+      margin: 0 1rem;
       font-size: 1.25rem;
       border-radius: 0.5rem;
+    }
+
+    .icon {
+      width: 2rem;
     }
   }
 }
