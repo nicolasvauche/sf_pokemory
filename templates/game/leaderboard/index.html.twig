@@ -10,6 +10,19 @@
         <h1>Classement Général</h1>
     </section>
 
+    <section class="app-section app-text">
+        <h2>Es-tu dans le Tableau&nbsp;?</h2>
+
+        <p>
+            Bienvenue sur la page du classement général, le tableau d'honneur des dresseurs de Pokémon les plus
+            redoutables&nbsp;! Ici, nous célébrons les joueurs qui ont fait preuve d'une stratégie digne des plus grands
+            maîtres Pokémon. Que tu sois débutant, avancé ou expert, vois comment tu te mesures à la concurrence. Les
+            champions qui ont terminé leur partie en un minimum de tentatives et en un temps record sont couronnés en
+            tête de liste. Alors, qui est le véritable maître Pokémon&nbsp;? Viens le découvrir et aspire à devenir le
+            meilleur d'entre tous&nbsp;!
+        </p>
+    </section>
+
     {% for mode, leaderboard in leaderboards %}
         {% set modeName = '' %}
         {% if mode == 'debutant' %}

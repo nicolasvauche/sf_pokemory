@@ -1,17 +1,17 @@
 {% extends 'layout/default/index.html.twig' %}
 
-{% block title %}Inscrivez-vous{% endblock %}
+{% block title %}Inscris-toi{% endblock %}
 
 {% block main %}
     <section class="app-section app-cover">
         <img src="{{ asset('img/cover.png') }}" alt="Pokemory"/>
-        <h1>Inscrivez-vous</h1>
+        <h1>Inscris-toi pour jouer&nbsp;!</h1>
     </section>
 
     <section class="app-section">
         {{ form_start(form, {'attr': {'class': 'app-form'}}) }}
         <fieldset class="form-fieldset">
-            <legend class="form-legend">Choisissez vos identifiants</legend>
+            <legend class="form-legend">Choisis tes identifiants</legend>
 
             <div class="form-group">
                 {{ form_label(form.email) }}
@@ -29,7 +29,7 @@
         </fieldset>
 
         <fieldset class="form-fieldset">
-            <legend class="form-legend">Choisissez votre pseudo</legend>
+            <legend class="form-legend">Choisis ton pseudo</legend>
 
             <div class="form-group">
                 {{ form_label(form.pseudo) }}

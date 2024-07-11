@@ -15,7 +15,7 @@ class PlayController extends AbstractController
     public function index(MemoryGameService $memoryGameService, string $mode = null): Response
     {
         if(!$mode) {
-            $this->addFlash('warning', 'Choisissez un mode de jeu');
+            $this->addFlash('warning', 'Choisis un mode de jeu');
 
             return $this->redirectToRoute('app_game_home');
         }
@@ -48,7 +48,7 @@ class PlayController extends AbstractController
         $pokemons = $memoryGameService->getPokemonsForMemoryGame($nbCards);
 
         if(sizeof($pokemons) === 0) {
-            $this->addFlash('warning', "Aucun Pokémon disponible ! Demandez à l'administrateur de les charger");
+            $this->addFlash('warning', "Aucun Pokémon disponible ! Demande à l'administrateur de les charger");
 
             return $this->redirectToRoute('app_game_home');
         }

@@ -21,7 +21,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'required' => true,
-                'label' => 'Votre e-mail',
+                'label' => 'Ton e-mail',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],
@@ -32,7 +32,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('plainPassword', PasswordType::class, [
                 'required' => true,
-                'label' => 'Votre mot de passe',
+                'label' => 'Ton mot de passe',
                 'mapped' => false,
                 'label_attr' => [
                     'class' => 'form-label',
@@ -43,18 +43,18 @@ class RegistrationFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez saisir votre mot de passe',
+                        'message' => 'Saisis ton mot de passe on te dit !',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} caractères',
+                        'minMessage' => 'Ton mot de passe doit faire au moins {{ limit }} caractères',
                         'max' => 4096,
                     ]),
                 ],
             ])
             ->add('pseudo', TextType::class, [
                 'required' => true,
-                'label' => 'Votre pseudo',
+                'label' => 'Ton pseudo',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],

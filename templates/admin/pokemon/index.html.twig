@@ -1,19 +1,19 @@
 {% extends 'layout/default/index.html.twig' %}
 
-{% block title %}Gérer les Pokémons{% endblock %}
+{% block title %}Gérer les Pokémon{% endblock %}
 
 {% block body_class %}admin pokemon{% endblock %}
 
 {% block main %}
     <section class="app-section app-cover">
         <img src="{{ asset('img/cover.png') }}" alt="Pokemory"/>
-        <h1>Tous les Pokémons</h1>
+        <h1>Tous les Pokémon</h1>
     </section>
 
-    <section class="app-section">
+    <section class="app-section {% if pokemons | length == 0 %}app-text{% endif %}">
         <h2>
-            {{ pokemons | length }}
-            Pokémon{{ pokemons | length > 1 ? 's' : '' }}
+            {{ pokemons | length > 0 ? pokemons | length : 'Aucun' }}
+            Pokémon
             chargé{{ pokemons | length > 1 ? 's' : '' }}
         </h2>
 
@@ -30,6 +30,14 @@
                     </div>
                 {% endfor %}
             </div>
+        {% else %}
+            <p>
+                Prépare-toi à attraper les meilleurs Pokémon de tous les temps&nbsp;! En cliquant sur ce gros bouton
+                magique, tu déclencheras une chasse incroyable qui ira chercher 36 Pokémon directement depuis l'API
+                Pokémon. Imagine-toi comme un dresseur légendaire, explorant les confins du cyberspace pour rassembler
+                ton équipe de rêve. Alors, es-tu prêt à te lancer dans l'aventure et à attraper ces petits monstres
+                virtuels&nbsp;? Clique et découvre quels Pokémon t'attendent&nbsp;!
+            </p>
         {% endif %}
     </section>
 
@@ -39,7 +47,7 @@
                 <a href="{{ path('app_admin_pokemon_fetch') }}"
                    class="app-btn"
                         {% if pokemons | length > 0 %}
-                            onclick="return window.confirm('Attention ! Cela remplacera tous les Pokémons déjà enregistrés. Continuer ?')"
+                            onclick="return window.confirm('Attention ! Cela remplacera tous les Pokémon déjà enregistrés. Continuer ?')"
                         {% endif %}
                 >
                     {{ pokemons | length > 0 ? 'Relancer' : 'Lancer' }}

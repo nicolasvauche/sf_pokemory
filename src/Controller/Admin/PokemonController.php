@@ -23,7 +23,7 @@ class PokemonController extends AbstractController
     {
         $pokemonService->fetchAndStorePokemons();
 
-        $this->addFlash('success', 'Les Pokémons ont été chargés !');
+        $this->addFlash('success', 'Les Pokémon ont été chargés !');
 
         return $this->redirectToRoute('app_admin_pokemon');
     }
