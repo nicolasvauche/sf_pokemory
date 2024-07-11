@@ -11,5 +11,9 @@ html {
     @import "./navigation", "./usernavigation";
 
     @import "./main";
+
+    @import "./footer";
+
+    @import "../../pages/home", "../../pages/game";
   }
 }

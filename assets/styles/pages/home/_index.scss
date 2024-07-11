@@ -1,0 +1,15 @@
+&.homepage {
+  .app-main {
+    .app-section {
+      &.app-cover {
+        img {
+          height: 16rem;
+
+          @include respondTo(md) {
+            height: 36rem;
+          }
+        }
+      }
+    }
+  }
+}

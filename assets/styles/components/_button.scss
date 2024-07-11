@@ -1,0 +1,29 @@
+.app-btn {
+  padding: 1rem 1.5rem;
+  font-family: $font-third;
+  font-size: 1.5rem;
+  color: $fourth;
+  text-shadow: 2px 2px 0 $primary,
+  2px 2px 0 $primary,
+  4px 4px 0 $primary,
+  6px 6px 0 $primary;
+  letter-spacing: 4px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: $primary;
+  border: 0.25rem $primary;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: $third;
+  }
+
+  &.disabled {
+    opacity: 0.25;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}

@@ -2,6 +2,8 @@
     <a href="{{ path('app_home') }}" {% if app.request.get('_route') == 'app_home' %}class="active"{% endif %}>
         Accueil
     </a>
-    <a href="#">Jouer</a>
+    <a href="{{ path('app_game_home') }}" {% if 'app_game_' in app.request.get('_route') %}class="active"{% endif %}>
+        Jouer
+    </a>
     <a href="#">Classement</a>
 </nav>

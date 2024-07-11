@@ -1,0 +1,47 @@
+{% extends 'layout/default/index.html.twig' %}
+
+{% block title %}Nouvelle partie{% endblock %}
+
+{% block body_class %}game home{% endblock %}
+
+{% block main %}
+    <section class="app-section app-cover">
+        <img src="{{ asset('img/cover.png') }}" alt="Pokemory"/>
+        <h1>Démarrer une partie</h1>
+    </section>
+
+    {% if not app.user %}
+        <div class="app-alert warning">
+            Vous devez
+            <a href="{{ path('app_login') }}">être connecté</a>
+            pour jouer&nbsp;!
+        </div>
+    {% endif %}
+
+    <section class="app-section app-text">
+        <h2>Prêt à Tester Votre Mémoire de Dresseur&nbsp;? Choisissez Votre Mode&nbsp;!</h2>
+
+        <p>
+            Que la chasse aux Pokémon commence&nbsp;! Sélectionnez votre niveau de défi et plongez dans une nouvelle
+            aventure. Pour les Dresseurs en herbe, commencez doucement avec le mode Débutant et ses 4 cartes, parfait
+            pour réveiller votre mémoire encore plus vite qu'un Évoli sous une cascade. Prêt à monter en puissance&nbsp;?
+            Le mode Avancé vous attend avec ses 16 cartes, de quoi mettre à l'épreuve même les plus fins stratèges. Mais
+            seuls les vrais Maîtres Pokémon oseront affronter le mode Expert et ses 36 cartes. À vous de prouver que
+            votre mémoire est aussi acérée qu'un Dracaufeu en pleine bataille&nbsp;!
+        </p>
+
+        <div class="buttons">
+            <p>
+                <a href="#" class="app-btn {% if not app.user %}disabled{% endif %}">Débutant</a>
+            </p>
+
+            <p>
+                <a href="#" class="app-btn {% if not app.user %}disabled{% endif %}">Avancé</a>
+            </p>
+
+            <p>
+                <a href="#" class="app-btn {% if not app.user %}disabled{% endif %}">Expert</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}
