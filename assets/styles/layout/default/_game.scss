@@ -1,0 +1,19 @@
+.app-game {
+  @include displayGrid(repeat(2, 1fr), 0.5rem, center);
+
+  &.debutant {
+    @include displayGrid(repeat(2, 1fr), 1rem, center);
+  }
+
+  &.avance {
+    @include respondTo(md) {
+      @include displayGrid(repeat(4, 1fr), 1rem, center);
+    }
+  }
+
+  &.expert {
+    @include respondTo(md) {
+      @include displayGrid(repeat(6, 1fr), 1rem, center);
+    }
+  }
+}

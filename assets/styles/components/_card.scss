@@ -1,0 +1,52 @@
+.app-card {
+  height: 10rem;
+  cursor: pointer;
+  perspective: 1000px;
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      @include displayFlex(center, center, null, column);
+      padding: 0.5rem;
+      width: calc(100% - 1.5rem);
+      height: calc(100% - 1.5rem);
+      text-align: center;
+      border: 0.25rem solid $primary;
+      border-radius: 0.5rem;
+      backface-visibility: hidden;
+
+      img {
+        height: 6rem;
+        object-fit: contain;
+      }
+    }
+
+    .card-back {
+      background-color: rgba($black, 0.25);
+    }
+
+    .card-front {
+      background-color: $fourth;
+      transform: rotateY(180deg);
+
+      img {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &.flipped {
+    .card-inner {
+      transform: rotateY(180deg);
+    }
+  }
+}

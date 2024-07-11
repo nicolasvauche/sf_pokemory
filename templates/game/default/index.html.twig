@@ -32,15 +32,24 @@
 
         <div class="buttons">
             <p>
-                <a href="#" class="app-btn {% if not app.user %}disabled{% endif %}">Débutant</a>
+                <a href="{{ path('app_game_play', {'mode': 'debutant'}) }}"
+                   class="app-btn {% if not app.user %}disabled{% endif %}">
+                    Débutant
+                </a>
             </p>
 
             <p>
-                <a href="#" class="app-btn {% if not app.user %}disabled{% endif %}">Avancé</a>
+                <a href="{{ path('app_game_play', {'mode': 'avance'}) }}"
+                   class="app-btn {% if not app.user %}disabled{% endif %}">
+                    Avancé
+                </a>
             </p>
 
             <p>
-                <a href="#" class="app-btn {% if not app.user %}disabled{% endif %}">Expert</a>
+                <a href="{{ path('app_game_play', {'mode': 'expert'}) }}"
+                   class="app-btn {% if not app.user %}disabled{% endif %}">
+                    Expert
+                </a>
             </p>
         </div>
     </section>

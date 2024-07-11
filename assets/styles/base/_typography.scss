@@ -33,6 +33,14 @@ h2 {
   }
 }
 
+h3 {
+  font-family: $font-third;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: $primary;
+}
+
 p {
   margin-bottom: 1rem;
   font-size: 1.25rem;

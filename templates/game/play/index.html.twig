@@ -1,0 +1,32 @@
+{% extends 'layout/default/index.html.twig' %}
+
+{% block title %}Jouer{% endblock %}
+
+{% block body_class %}game play{% endblock %}
+
+{% block main %}
+    <section class="app-section app-cover" data-controller="game--confirm-exit">
+        <img src="{{ asset('img/cover.png') }}" alt="Pokemory"/>
+        <h1>Mode {{ modeName }}</h1>
+    </section>
+
+    <section class="app-section">
+        <h2><span id="tries" data-flip-target="tries">0 essai</span></h2>
+
+        <div class="app-game {{ mode }}" data-controller="game--index" data-action="click->game--index#flipCard">
+            {% for i in 1..nbCards %}
+                <div class="app-card" data-action="click->game--index#flipCard">
+                    <div class="card-inner">
+                        <div class="card-back">
+                            <img src="{{ asset('img/card.png') }}" alt="Pokemon"/>
+                        </div>
+                        <div class="card-front">
+                            <img src="{{ asset('img/card.png') }}" alt="Pokemon"/>
+                            <h3>Pokemon</h3>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

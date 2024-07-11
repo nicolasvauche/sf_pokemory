@@ -4,11 +4,16 @@
   @include respondTo(md) {
     padding: 3rem 1.5rem;
 
-    &.app-text {
+    &.app-text,
+    &:has(.app-game) {
       margin: 3rem auto;
       width: 60dvw;
       background-color: $third;
       border-radius: 0.5rem;
+    }
+
+    &:has(.app-game) {
+      padding: 2rem;
     }
   }
 

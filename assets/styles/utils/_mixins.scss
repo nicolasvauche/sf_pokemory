@@ -6,6 +6,13 @@
   gap: $gap;
 }
 
+@mixin displayGrid($columns: 1fr, $gap: 0.5rem, $align: null) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-gap: $gap;
+  align-items: $align;
+}
+
 @mixin respondTo($breakpoint) {
   @if $breakpoint == sm {
     @media(min-width: 768px) {
