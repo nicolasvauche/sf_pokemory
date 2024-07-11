@@ -37,7 +37,8 @@
             Connexion
         </a>
 
-        <a href="#" {% if app.request.get('_route') == 'app_register' %}class="active"{% endif %}>
+        <a href="{{ path('app_register') }}"
+           {% if app.request.get('_route') == 'app_register' %}class="active"{% endif %}>
             {{ ux_icon('pixelarticons:user-plus', {class: 'icon'}) }}
             Inscription
         </a>

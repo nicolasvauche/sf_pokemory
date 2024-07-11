@@ -38,4 +38,15 @@
       outline: $primary;
     }
   }
+
+  ul {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+
+    li {
+      font-weight: bold;
+      text-align: right;
+      color: $danger;
+    }
+  }
 }
