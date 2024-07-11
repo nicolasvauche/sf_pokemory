@@ -1,0 +1,15 @@
+html {
+  scroll-behavior: smooth;
+
+  body {
+    font-family: $font-primary;
+    color: $white;
+    background-color: $primary;
+
+    @import "./header";
+
+    @import "./navigation";
+
+    @import "./main";
+  }
+}

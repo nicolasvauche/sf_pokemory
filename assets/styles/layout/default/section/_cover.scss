@@ -1,0 +1,22 @@
+&.app-cover {
+  position: relative;
+  padding-bottom: 2rem;
+  text-align: center;
+  background-color: $secondary;
+
+  img {
+    object-fit: contain;
+    height: 16rem;
+
+    @include respondTo(md) {
+      height: 36rem;
+    }
+  }
+
+  h1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+  }
+}

@@ -1,0 +1,19 @@
+/* IMPORTS */
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+/* FONTS */
+$font-primary: "Roboto", sans-serif;
+$font-secondary: 'Pokemon Solid', sans-serif;
+$font-third: "Press Start 2P", system-ui;
+
+/* FONTS TAGS */
+h1 {
+  font-family: $font-secondary;
+  font-size: 2.5rem;
+  color: $fourth;
+  text-shadow: 2px 2px 0 $primary,
+  4px 4px 0 $primary,
+  6px 6px 0 $primary,
+  8px 8px 0 $primary;
+  letter-spacing: 2px;
+}
