@@ -12,6 +12,32 @@
       border-radius: 0.5rem;
     }
 
+    &.app-text {
+      .buttons {
+        @include respondTo(md) {
+          @include displayFlex(center, center, 1.5rem);
+        }
+
+        p {
+          @include respondTo(md) {
+            margin-bottom: 0;
+            flex: 1;
+          }
+
+          .app-btn {
+            display: block;
+            text-transform: none;
+            text-align: center;
+            background-color: $secondary;
+
+            @include respondTo(md) {
+              background-color: $primary;
+            }
+          }
+        }
+      }
+    }
+
     &:has(.app-game) {
       padding: 2rem;
     }
