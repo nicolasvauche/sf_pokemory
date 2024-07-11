@@ -16,6 +16,13 @@
             <a href="{{ path('app_login') }}">être connecté</a>
             pour jouer&nbsp;!
         </div>
+    {% else %}
+        {% if is_granted("ROLE_ADMIN") %}
+            <div class="app-alert warning">
+                Vous ne pouvez pas jouer en tant qu'administrateur !
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            </div>
+        {% endif %}
     {% endif %}
 
     <section class="app-section app-text">

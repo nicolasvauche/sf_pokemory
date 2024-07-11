@@ -13,7 +13,10 @@
     <section class="app-section">
         <h2><span id="tries" data-flip-target="tries">0 essai</span></h2>
 
-        <div class="app-game {{ mode }}" data-controller="game--index" data-action="click->game--index#flipCard">
+        <div class="app-game {{ mode }}"
+             data-controller="game--index"
+             data-action="click->game--index#flipCard"
+             data-game-id="{{ gameId }}">
             {% for pokemon in pokemons %}
                 <div class="app-card" data-action="click->game--index#flipCard" data-game--index-target="card">
                     <div class="card-inner">

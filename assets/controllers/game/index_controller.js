@@ -1,4 +1,3 @@
-// controllers/game_index_controller.js
 import {Controller} from '@hotwired/stimulus'
 
 /* stimulusFetch: 'lazy' */
@@ -9,6 +8,7 @@ export default class extends Controller {
         this.flippedCards = []
         this.foundPairs = []
         this.tries = 0
+        this.gameId = this.element.dataset.gameId
     }
 
     flipCard(event) {
@@ -31,14 +31,8 @@ export default class extends Controller {
                 this.flippedCards = []
                 this.incrementTries()
 
-                console.log('Paires trouvées:', this.foundPairs.length / 2)
-                console.log('Total de cartes:', this.cardTargets.length)
-
                 if (this.foundPairs.length === this.cardTargets.length) {
-                    setTimeout(() => {
-                        alert('Bravo ! Vous avez gagné en ' + this.tries + ' coup' + (this.tries > 1 ? 's' : '') + ' !')
-                        //window.location.href = '/classement'
-                    }, 500)
+                    this.completeGame()
                 }
             } else {
                 setTimeout(() => {
@@ -61,5 +55,23 @@ export default class extends Controller {
 
     isCardInFoundPairs(card) {
         return this.foundPairs.includes(card)
+    }
+
+    async completeGame() {
+        try {
+            const response = await fetch(`/complete-game/${this.gameId}/${this.tries}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                alert('Partie gagnée !')
+                window.location.href = '/classement'
+            }
+        } catch (error) {
+            console.error('Error completing the game:', error);
+        }
     }
 }

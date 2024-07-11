@@ -2,8 +2,10 @@
 
 namespace App\Controller\Game;
 
+use App\Repository\GameRepository;
 use App\Service\MemoryGameService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -14,6 +16,12 @@ class PlayController extends AbstractController
     {
         if(!$mode) {
             $this->addFlash('warning', 'Choisissez un mode de jeu');
+
+            return $this->redirectToRoute('app_game_home');
+        }
+
+        if($this->isGranted("ROLE_ADMIN")) {
+            $this->addFlash('warning', "Vous ne pouvez pas jouer en tant qu'administrateur !");
 
             return $this->redirectToRoute('app_game_home');
         }
@@ -37,12 +45,29 @@ class PlayController extends AbstractController
                 break;
         }
 
+        $game = $memoryGameService->startNewGame($mode);
+
         $pokemons = $memoryGameService->getPokemonsForMemoryGame($nbCards);
 
         return $this->render('game/play/index.html.twig', [
             'mode' => $mode,
             'modeName' => $modeName,
             'pokemons' => $pokemons,
+            'gameId' => $game->getId(),
         ]);
+    }
+
+    #[Route('/complete-game/{gameId}/{tries}', name: 'app_game_complete', methods: ['POST'])]
+    public function completeGame(GameRepository $gameRepository, MemoryGameService $memoryGameService, int $gameId, int $tries): JsonResponse
+    {
+        $game = $gameRepository->find($gameId);
+
+        if($game) {
+            $memoryGameService->completeGame($game, $tries);
+
+            return new JsonResponse(['status' => 'success']);
+        }
+
+        return new JsonResponse(['status' => 'error', 'message' => 'Game not found'], 404);
     }
 }
