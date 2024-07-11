@@ -38,16 +38,19 @@ class MemoryGameService
     {
         $player = $this->security->getUser();
 
+        // Check if there is an ongoing game for the player
         $existingGame = $this->entityManager->getRepository(Game::class)->findOneBy([
             'player' => $player,
             'completed' => false,
         ]);
 
+        // If an existing game is found, remove it
         if($existingGame) {
             $this->entityManager->remove($existingGame);
             $this->entityManager->flush();
         }
 
+        // Create a new game
         $game = new Game();
         $game->setPlayer($player);
         $game->setMode($mode);
@@ -68,5 +71,24 @@ class MemoryGameService
 
         $this->entityManager->persist($game);
         $this->entityManager->flush();
+    }
+
+    public function getLeaderboards(): array
+    {
+        $modes = ['debutant', 'avance', 'expert'];
+        $leaderboards = [];
+
+        foreach($modes as $mode) {
+            $leaderboards[$mode] = $this->entityManager->getRepository(Game::class)->createQueryBuilder('g')
+                ->where('g.mode = :mode')
+                ->andWhere('g.completed = true')
+                ->orderBy('g.tries', 'ASC')
+                ->addOrderBy('g.completedAt - g.createdAt', 'ASC')
+                ->setParameter('mode', $mode)
+                ->getQuery()
+                ->getResult();
+        }
+
+        return $leaderboards;
     }
 }

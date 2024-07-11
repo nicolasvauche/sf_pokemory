@@ -1,0 +1,49 @@
+{% extends 'layout/default/index.html.twig' %}
+
+{% block title %}Classement Général{% endblock %}
+
+{% block body_class %}leaderboard{% endblock %}
+
+{% block main %}
+    <section class="app-section app-cover">
+        <img src="{{ asset('img/cover.png') }}" alt="Pokemory"/>
+        <h1>Classement Général</h1>
+    </section>
+
+    {% for mode, leaderboard in leaderboards %}
+        {% set modeName = '' %}
+        {% if mode == 'debutant' %}
+            {% set modeName = 'Débutant' %}
+        {% elseif mode == 'avance' %}
+            {% set modeName = 'Avancé' %}
+        {% elseif mode == 'expert' %}
+            {% set modeName = 'Expert' %}
+        {% endif %}
+        {% if leaderboard %}
+            <section class="app-section app-text">
+                <h2>Mode {{ modeName }}</h2>
+
+                <div class="leaderboard-grid">
+                    <div class="container head">
+                        <div class="grid-header">Rang</div>
+                        <div class="grid-header">Joueur</div>
+                        <div class="grid-header">Essais</div>
+                        <div class="grid-header">Durée</div>
+                    </div>
+
+                    {% for game in leaderboard %}
+                        {% set duration = game.completedAt.timestamp - game.createdAt.timestamp %}
+                        {% set minutes = (duration // 60) %}
+                        {% set seconds = (duration % 60) %}
+                        <div class="container">
+                            <div class="grid-item">{{ loop.index }}</div>
+                            <div class="grid-item">{{ game.player.pseudo }}</div>
+                            <div class="grid-item">{{ game.tries }}</div>
+                            <div class="grid-item">{{ minutes ? minutes ~ "'" : '' }}{{ seconds }}''</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

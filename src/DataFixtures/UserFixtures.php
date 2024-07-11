@@ -33,6 +33,13 @@ class UserFixtures extends Fixture
             ->setActive(true);
         $manager->persist($player);
 
+        $player = new Player();
+        $player->setEmail('player2@pokemory.com')
+            ->setPassword($this->passwordHasher->hashPassword($player, 'player'))
+            ->setPseudo('bob')
+            ->setActive(true);
+        $manager->persist($player);
+
         $manager->flush();
     }
 }

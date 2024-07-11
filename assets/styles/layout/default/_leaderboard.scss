@@ -1,0 +1,31 @@
+.leaderboard-grid {
+  .container {
+    @include displayFlex(center, center, 0.5rem);
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .grid-header {
+    flex: 1;
+    font-weight: bold;
+    text-align: center;
+    color: $fourth;
+  }
+
+  .grid-item {
+    flex: 1;
+    padding: 0.25rem;
+    text-align: center;
+    color: $primary;
+    background-color: $secondary;
+    border: 2px solid $primary;
+    border-radius: 0.5rem;
+
+    @include respondTo(md) {
+      padding: 0.5rem;
+    }
+  }
+}
