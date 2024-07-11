@@ -14,15 +14,15 @@
         <h2><span id="tries" data-flip-target="tries">0 essai</span></h2>
 
         <div class="app-game {{ mode }}" data-controller="game--index" data-action="click->game--index#flipCard">
-            {% for i in 1..nbCards %}
-                <div class="app-card" data-action="click->game--index#flipCard">
+            {% for pokemon in pokemons %}
+                <div class="app-card" data-action="click->game--index#flipCard" data-game--index-target="card">
                     <div class="card-inner">
                         <div class="card-back">
                             <img src="{{ asset('img/card.png') }}" alt="Pokemon"/>
                         </div>
                         <div class="card-front">
-                            <img src="{{ asset('img/card.png') }}" alt="Pokemon"/>
-                            <h3>Pokemon</h3>
+                            <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}"/>
+                            <h3>{{ pokemon.name }}</h3>
                         </div>
                     </div>
                 </div>

@@ -7,12 +7,13 @@ export default class extends Controller {
 
     connect() {
         this.flippedCards = []
+        this.foundPairs = []
         this.tries = 0
     }
 
     flipCard(event) {
         const card = event.target.closest('.app-card')
-        if (card && !card.classList.contains('flipped') && this.flippedCards.length < 2) {
+        if (card && !card.classList.contains('flipped') && !this.isCardInFoundPairs(card) && this.flippedCards.length < 2) {
             this.doFlipCard(card)
         }
     }
@@ -22,10 +23,29 @@ export default class extends Controller {
         this.flippedCards.push(card)
 
         if (this.flippedCards.length === 2) {
-            setTimeout(() => {
-                this.resetFlippedCards()
+            const card1Name = this.flippedCards[0].querySelector('.card-front h3').innerText
+            const card2Name = this.flippedCards[1].querySelector('.card-front h3').innerText
+
+            if (card1Name === card2Name) {
+                this.foundPairs.push(this.flippedCards[0], this.flippedCards[1])
+                this.flippedCards = []
                 this.incrementTries()
-            }, 1000)
+
+                console.log('Paires trouvées:', this.foundPairs.length / 2)
+                console.log('Total de cartes:', this.cardTargets.length)
+
+                if (this.foundPairs.length === this.cardTargets.length) {
+                    setTimeout(() => {
+                        alert('Bravo ! Vous avez gagné en ' + this.tries + ' coup' + (this.tries > 1 ? 's' : '') + ' !')
+                        //window.location.href = '/classement'
+                    }, 500)
+                }
+            } else {
+                setTimeout(() => {
+                    this.resetFlippedCards()
+                    this.incrementTries()
+                }, 1000)
+            }
         }
     }
 
@@ -37,5 +57,9 @@ export default class extends Controller {
     incrementTries() {
         this.tries++
         document.getElementById('tries').innerText = this.tries + (this.tries > 1 ? ' essais' : ' essai')
+    }
+
+    isCardInFoundPairs(card) {
+        return this.foundPairs.includes(card)
     }
 }

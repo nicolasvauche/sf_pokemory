@@ -2,6 +2,7 @@
 
 namespace App\Controller\Game;
 
+use App\Service\MemoryGameService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -9,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class PlayController extends AbstractController
 {
     #[Route('/jouer/{mode}', name: 'app_game_play')]
-    public function index(string $mode = null): Response
+    public function index(MemoryGameService $memoryGameService, string $mode = null): Response
     {
         if(!$mode) {
             $this->addFlash('warning', 'Choisissez un mode de jeu');
@@ -36,10 +37,12 @@ class PlayController extends AbstractController
                 break;
         }
 
+        $pokemons = $memoryGameService->getPokemonsForMemoryGame($nbCards);
+
         return $this->render('game/play/index.html.twig', [
             'mode' => $mode,
             'modeName' => $modeName,
-            'nbCards' => $nbCards,
+            'pokemons' => $pokemons,
         ]);
     }
 }
