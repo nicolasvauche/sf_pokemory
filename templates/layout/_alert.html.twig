@@ -1,0 +1,13 @@
+{% if error is defined and error %}
+    <div class="app-alert danger" data-controller="alert--index" data-action="alert--index#close">
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+    </div>
+{% endif %}
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="app-alert {{ label }}" data-controller="alert--index" data-action="alert--index#close">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}

@@ -1,3 +1,11 @@
 .app-main {
+  margin-bottom: 3.25rem;
+
+  @include respondTo(md) {
+    margin-bottom: 0;
+  }
+
   @import "./section";
+
+  @import "./form";
 }

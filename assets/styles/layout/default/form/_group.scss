@@ -1,0 +1,41 @@
+.form-group {
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: $font-third;
+    font-weight: bold;
+    color: $primary;
+
+    &.required {
+      &:after {
+        content: " *";
+        color: $danger;
+      }
+    }
+  }
+
+  .form-control {
+    display: block;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    font-family: $font-primary;
+    font-size: 1rem;
+    color: $primary;
+    background-color: $fourth;
+    border: 2px solid $fourth;
+    border-radius: 0.5rem;
+    transition: all 0.5s;
+
+    &:focus {
+      background-color: $white;
+      outline: $primary;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.form-fieldset {
+  padding: 1.5rem 1rem;
+  margin-bottom: 2rem;
+  background-color: $secondary;
+  border: 0.5rem solid $fourth;
+  border-radius: 0.5rem;
+
+  @include respondTo(md) {
+    padding: 3rem 1.5rem;
+  }
+
+  &.form-actions {
+    @include displayFlex(center, center, 1rem);
+    padding: 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: none;
+
+    @include respondTo(md) {
+      padding: 1.5rem;
+    }
+
+    .form-submit {
+      padding: 1rem 1.5rem;
+      font-family: $font-third;
+      font-size: 1.5rem;
+      color: $fourth;
+      text-shadow: 2px 2px 0 $primary,
+      2px 2px 0 $primary,
+      4px 4px 0 $primary,
+      6px 6px 0 $primary;
+      letter-spacing: 4px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: $primary;
+      border: 0.25rem $primary;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        background-color: $third;
+      }
+    }
+  }
+
+  .form-legend {
+    padding: 0.5rem;
+    font-family: $font-third;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    text-align: center;
+    color: $primary;
+    background-color: $fourth;
+    border-radius: 0.5rem;
+
+    @include respondTo(md) {
+      padding: 1rem;
+    }
+  }
+}

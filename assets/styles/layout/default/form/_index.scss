@@ -1,0 +1,10 @@
+.app-form {
+  @include respondTo(md) {
+    margin: 0 auto;
+    width: 45dvw;
+  }
+
+  @import "./fieldset";
+
+  @import "./group";
+}

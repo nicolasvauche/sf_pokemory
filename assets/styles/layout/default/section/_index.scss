@@ -1,3 +1,16 @@
 .app-section {
+  padding: 3rem 1rem;
+
+  @include respondTo(md) {
+    padding: 3rem 1.5rem;
+
+    &.app-text {
+      margin: 3rem auto;
+      width: 60dvw;
+      background-color: $third;
+      border-radius: 0.5rem;
+    }
+  }
+
   @import "./cover";
 }

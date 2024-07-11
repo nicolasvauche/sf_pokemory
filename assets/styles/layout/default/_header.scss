@@ -1,10 +1,10 @@
 .app-header {
-  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 9997;
+  @include displayFlex(space-between, center);
+  padding: 0.25rem 1.5rem;
   background-color: $white;
-
-  @include respondTo(md) {
-    @include displayFlex(space-between, center);
-  }
 
   .sitename {
     font-family: $font-secondary;

@@ -1,3 +1,7 @@
 <nav class="app-navigation">
-    <a href="#">Test</a>
+    <a href="{{ path('app_home') }}" {% if app.request.get('_route') == 'app_home' %}class="active"{% endif %}>
+        Accueil
+    </a>
+    <a href="#">Jouer</a>
+    <a href="#">Classement</a>
 </nav>
