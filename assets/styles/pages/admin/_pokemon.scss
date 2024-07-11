@@ -1,0 +1,13 @@
+&.pokemon {
+  .app-card {
+    .card-inner {
+      cursor: initial;
+
+      .card-front {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

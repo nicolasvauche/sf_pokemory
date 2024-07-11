@@ -6,33 +6,26 @@
 
     &.app-text,
     &:has(.app-game) {
-      margin: 3rem auto;
-      width: 60dvw;
       background-color: $third;
       border-radius: 0.5rem;
     }
 
     &.app-text {
+      margin: 3rem auto;
+      width: 60dvw;
+
       .buttons {
-        @include respondTo(md) {
-          @include displayFlex(center, center, 1.5rem);
-        }
+        @include displayFlex(center, center, 1.5rem);
 
         p {
-          @include respondTo(md) {
-            margin-bottom: 0;
-            flex: 1;
-          }
+          margin-bottom: 0;
+          flex: 1;
 
           .app-btn {
             display: block;
             text-transform: none;
             text-align: center;
-            background-color: $secondary;
-
-            @include respondTo(md) {
-              background-color: $primary;
-            }
+            background-color: $primary;
           }
         }
       }

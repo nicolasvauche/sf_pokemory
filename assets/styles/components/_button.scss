@@ -1,19 +1,21 @@
 .app-btn {
-  padding: 1rem 1.5rem;
+  display: inline-block;
+  padding: 1rem;
   font-family: $font-third;
   font-size: 1.5rem;
-  color: $fourth;
-  text-shadow: 2px 2px 0 $primary,
-  2px 2px 0 $primary,
-  4px 4px 0 $primary,
-  6px 6px 0 $primary;
+  line-height: 2.5rem;
   letter-spacing: 4px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  color: $fourth;
   background-color: $primary;
   border: 0.25rem $primary;
   border-radius: 0.5rem;
+  text-shadow: 2px 2px 0 $primary,
+  2px 2px 0 $primary,
+  4px 4px 0 $primary,
+  6px 6px 0 $primary;
   cursor: pointer;
   transition: all 0.5s;
 

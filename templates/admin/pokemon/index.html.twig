@@ -1,22 +1,49 @@
 {% extends 'layout/default/index.html.twig' %}
 
-{% block title %}Charger les Pokémons{% endblock %}
+{% block title %}Gérer les Pokémons{% endblock %}
 
-{% block body_class %}admin{% endblock %}
+{% block body_class %}admin pokemon{% endblock %}
 
 {% block main %}
     <section class="app-section app-cover">
         <img src="{{ asset('img/cover.png') }}" alt="Pokemory"/>
-        <h1>Charger les Pokémons</h1>
+        <h1>Tous les Pokémons</h1>
+    </section>
+
+    <section class="app-section">
+        <h2>
+            {{ pokemons | length }}
+            Pokémon{{ pokemons | length > 1 ? 's' : '' }}
+            chargé{{ pokemons | length > 1 ? 's' : '' }}
+        </h2>
+
+        {% if pokemons | length > 0 %}
+            <div class="app-game expert">
+                {% for pokemon in pokemons %}
+                    <div class="app-card flipped">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}"/>
+                                <h3>{{ pokemon.name }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </section>
 
     <section class="app-section app-text">
         <div class="buttons">
             <p>
-                <a href="#"
+                <a href="{{ path('app_admin_pokemon_fetch') }}"
                    class="app-btn"
-                   onclick="return window.confirm('Attention ! Cela remplacera tous les Pokémons déjà enregistrés. Continuer ?')">
-                    Lancer le chargement
+                        {% if pokemons | length > 0 %}
+                            onclick="return window.confirm('Attention ! Cela remplacera tous les Pokémons déjà enregistrés. Continuer ?')"
+                        {% endif %}
+                >
+                    {{ pokemons | length > 0 ? 'Relancer' : 'Lancer' }}
+                    le chargement
                 </a>
             </p>
         </div>

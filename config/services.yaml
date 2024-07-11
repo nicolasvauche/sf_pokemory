@@ -22,5 +22,12 @@ services:
       - '../src/Entity/'
       - '../src/Kernel.php'
 
+  App\Service\PokemonService:
+    arguments:
+      $client: '@guzzle.client'
+    public: true
+
+  guzzle.client:
+    class: GuzzleHttp\Client
   # add more service definitions when explicit configuration is needed
   # please note that last definitions always *replace* previous ones
