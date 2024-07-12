@@ -61,7 +61,7 @@ export default class extends Controller {
                     if (this.foundPairs.length === this.cardTargets.length) {
                         this.completeGame();
                     }
-                }, 1500);
+                }, 1000);
             } else {
                 setTimeout(() => {
                     this.playSound(this.failedSound);
@@ -70,7 +70,7 @@ export default class extends Controller {
                         this.resetFlippedCards();
                         this.incrementTries();
                     }, 1000);
-                }, 1500);
+                }, 1000);
             }
         }
     }
@@ -99,9 +99,11 @@ export default class extends Controller {
             });
 
             if (response.ok) {
-                this.playSound(this.successSound);
-                alert('Partie gagnée !');
-                window.location.href = '/classement';
+                setTimeout(() => {
+                    this.playSound(this.successSound);
+                    alert('Partie gagnée !');
+                    window.location.href = '/classement';
+                }, 1000);
             }
         } catch (error) {
             console.error('Error completing the game:', error);
