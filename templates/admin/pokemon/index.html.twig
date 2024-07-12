@@ -45,7 +45,7 @@
         <div class="buttons">
             <p>
                 <a href="{{ path('app_admin_pokemon_fetch') }}"
-                   class="app-btn"
+                   class="app-btn make-sound"
                         {% if pokemons | length > 0 %}
                             onclick="return window.confirm('Attention ! Cela remplacera tous les Pokémon déjà enregistrés. Continuer ?')"
                         {% endif %}

@@ -1,25 +1,39 @@
 .app-btn {
   display: block;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   font-family: $font-third;
   font-size: 1.5rem;
   line-height: 2.5rem;
   letter-spacing: 4px;
   text-align: center;
   text-decoration: none;
-  color: $fourth;
-  background-color: $primary;
+  color: $primary;
+  background-color: $fourth;
   border: 0.25rem $primary;
-  border-radius: 0.5rem;
-  text-shadow: 2px 2px 0 $primary,
-  2px 2px 0 $primary,
+  box-shadow: 2px 2px 0 $primary,
   4px 4px 0 $primary,
-  6px 6px 0 $primary;
+  6px 6px 0 $primary,
+  8px 8px 0 $primary;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.5s;
 
   &:hover {
-    background-color: $third;
+    color: $fourth;
+    background-color: $primary;
+    border: 0.25rem $primary;
+    box-shadow: 2px 2px 0 $fourth,
+    4px 4px 0 $fourth,
+    6px 6px 0 $fourth,
+    8px 8px 0 $fourth;
+  }
+
+  &:active {
+    box-shadow: 1px 1px 0 $primary,
+    2px 2px 0 $primary,
+    3px 3px 0 $primary,
+    4px 4px 0 $primary;
+    transform: translate(4px, 4px);
   }
 
   &.disabled {

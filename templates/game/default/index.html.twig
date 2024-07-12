@@ -5,25 +5,31 @@
 {% block body_class %}game home{% endblock %}
 
 {% block main %}
-    <section class="app-section app-cover">
-        <img src="{{ asset('img/cover.png') }}" alt="Pokemory"/>
-        <h1>Démarrer une partie</h1>
-    </section>
-
     {% if not app.user %}
         <div class="app-alert warning">
             Tu dois
             <a href="{{ path('app_login') }}">être connecté</a>
             pour jouer&nbsp;!
         </div>
+    {% elseif pokemons | length == 0 %}
+        <div class="app-alert warning">
+            Pas assez Pokémon disponible ! Demande à l'administrateur de les charger.
+        </div>
     {% else %}
         {% if is_granted("ROLE_ADMIN") %}
             <div class="app-alert warning">
                 Tu ne peux pas jouer en tant qu'administrateur !
-                <a href="{{ path('app_logout') }}">Déconnexion</a>
+                <small>
+                    <a href="{{ path('app_logout') }}">(déconnecte-toi)</a>
+                </small>
             </div>
         {% endif %}
     {% endif %}
+
+    <section class="app-section app-cover">
+        <img src="{{ asset('img/cover.png') }}" alt="Pokemory"/>
+        <h1>Démarrer une partie</h1>
+    </section>
 
     <section class="app-section app-text">
         <h2>Prêt à tester ta mémoire de Dresseur&nbsp;? Choisis ton mode&nbsp;!</h2>
@@ -40,21 +46,21 @@
         <div class="buttons">
             <p>
                 <a href="{{ path('app_game_play', {'mode': 'debutant'}) }}"
-                   class="app-btn {% if not app.user or is_granted("ROLE_ADMIN") %}disabled{% endif %}">
+                   class="app-btn make-sound {% if not app.user or is_granted("ROLE_ADMIN") or pokemons | length == 0 %}disabled{% endif %}">
                     Débutant
                 </a>
             </p>
 
             <p>
                 <a href="{{ path('app_game_play', {'mode': 'avance'}) }}"
-                   class="app-btn {% if not app.user or is_granted("ROLE_ADMIN") %}disabled{% endif %}">
+                   class="app-btn make-sound {% if not app.user or is_granted("ROLE_ADMIN") or pokemons | length == 0 %}disabled{% endif %}">
                     Avancé
                 </a>
             </p>
 
             <p>
                 <a href="{{ path('app_game_play', {'mode': 'expert'}) }}"
-                   class="app-btn {% if not app.user or is_granted("ROLE_ADMIN") %}disabled{% endif %}">
+                   class="app-btn make-sound {% if not app.user or is_granted("ROLE_ADMIN") or pokemons | length == 0 %}disabled{% endif %}">
                     Expert
                 </a>
             </p>

@@ -3,6 +3,8 @@
   padding: 0 0 2rem;
   text-align: center;
   background-color: $secondary;
+  border-top: 0.5rem solid $primary;
+  border-bottom: 0.5rem solid $fourth;
 
   img {
     object-fit: contain;

@@ -5,6 +5,7 @@
   right: 0;
   @include displayFlex(center, center);
   background-color: $white;
+  border-top: 0.5rem solid $fourth;
 
   @include respondTo(md) {
     position: static;
@@ -12,6 +13,7 @@
     right: initial;
     bottom: initial;
     flex: 2;
+    border: none;
   }
 
   & > a {
@@ -27,16 +29,32 @@
 
     &:hover,
     &.active {
-      color: $fourth;
-      background-color: $primary;
+      color: $primary;
+      background-color: $fourth;
     }
 
     @include respondTo(md) {
       @include displayFlex(center, center, 0.5rem, row);
-      padding: 1rem 1.5rem;
-      margin: 0 1rem;
-      font-size: 1.25rem;
+      padding: 0.5rem 1.5rem;
+      margin: 0.25rem 1rem 0.5rem;
+      font-size: 1.15rem;
       border-radius: 0.5rem;
+
+      &:hover,
+      &.active {
+        box-shadow: 2px 2px 0 $primary,
+        4px 4px 0 $primary,
+        6px 6px 0 $primary,
+        8px 8px 0 $primary;
+      }
+
+      &:active {
+        box-shadow: 1px 1px 0 $primary,
+        2px 2px 0 $primary,
+        3px 3px 0 $primary,
+        4px 4px 0 $primary;
+        transform: translate(4px, 4px);
+      }
     }
 
     .icon {

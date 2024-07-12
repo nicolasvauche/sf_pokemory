@@ -48,8 +48,6 @@ class PlayController extends AbstractController
         $pokemons = $memoryGameService->getPokemonsForMemoryGame($nbCards);
 
         if(sizeof($pokemons) === 0) {
-            $this->addFlash('warning', "Aucun Pokémon disponible ! Demande à l'administrateur de les charger");
-
             return $this->redirectToRoute('app_game_home');
         }
 

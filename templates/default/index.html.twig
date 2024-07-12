@@ -32,16 +32,16 @@
         <div class="buttons">
             {% if not app.user %}
                 <p>
-                    <a href="{{ path('app_login') }}" class="app-btn">Connecte-toi</a>
+                    <a href="{{ path('app_login') }}" class="app-btn make-sound">Connecte-toi</a>
                 </p>
 
                 <p>
-                    <a href="{{ path('app_register') }}" class="app-btn">ou Inscris-toi</a>
+                    <a href="{{ path('app_register') }}" class="app-btn make-sound">ou Inscris-toi</a>
                 </p>
             {% elseif not is_granted("ROLE_ADMIN") %}
                 <div class="buttons">
                     <p>
-                        <a href="{{ path('app_game_home') }}" class="app-btn">Nouvelle partie</a>
+                        <a href="{{ path('app_game_home') }}" class="app-btn make-sound">Nouvelle partie</a>
                     </p>
                 </div>
             {% endif %}

@@ -23,10 +23,6 @@ class MemoryGameService
         $pokemonRepository = $this->entityManager->getRepository(Pokemon::class);
         $allPokemons = $pokemonRepository->findAll();
 
-        if(count($allPokemons) < $limit / 2) {
-            throw new \RuntimeException('Not enough Pokémon to start the game.');
-        }
-
         shuffle($allPokemons);
         $pokemons = array_slice($allPokemons, 0, $limit / 2);
 

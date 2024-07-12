@@ -1,5 +1,26 @@
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: $primary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $fourth;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $fourth;
+}
+
 html {
   scroll-behavior: smooth;
+
+  .turbo-progress-bar {
+    height: 0.5rem;
+    background-color: $white;
+  }
 
   body {
     font-family: $font-primary;

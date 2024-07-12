@@ -3,6 +3,7 @@
   color: $white;
   background-color: $black;
   text-align: center;
+  border-top: 0.5rem solid $fourth;
 
   @include respondTo(md) {
     @include displayFlex(space-between, center);

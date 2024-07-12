@@ -5,6 +5,7 @@
   @include displayFlex(center, center);
   padding: 0.5rem 1rem;
   background-color: $white;
+  border-top: 0.5rem solid $fourth;
 
   @include respondTo(md) {
     @include displayFlex(space-between, center, 1.5rem);
