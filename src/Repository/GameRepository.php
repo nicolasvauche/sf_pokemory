@@ -16,28 +16,21 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
-    //    /**
-    //     * @return Game[] Returns an array of Game objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('g')
-    //            ->andWhere('g.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('g.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function getLeaderboards(array $modes = []): array
+    {
+        $leaderboards = [];
 
-    //    public function findOneBySomeField($value): ?Game
-    //    {
-    //        return $this->createQueryBuilder('g')
-    //            ->andWhere('g.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        foreach($modes as $mode) {
+            $leaderboards[$mode] = $this->createQueryBuilder('g')
+                ->where('g.mode = :mode')
+                ->andWhere('g.completed = true')
+                ->orderBy('g.tries', 'ASC')
+                ->addOrderBy('g.completedAt - g.createdAt', 'ASC')
+                ->setParameter('mode', $mode)
+                ->getQuery()
+                ->getResult();
+        }
+
+        return $leaderboards;
+    }
 }

@@ -9,6 +9,8 @@ use Symfony\Bundle\SecurityBundle\Security;
 
 class MemoryGameService
 {
+    const MODES = ['debutant', 'avance', 'expert'];
+
     private EntityManagerInterface $entityManager;
     private Security $security;
 
@@ -78,20 +80,6 @@ class MemoryGameService
 
     public function getLeaderboards(): array
     {
-        $modes = ['debutant', 'avance', 'expert'];
-        $leaderboards = [];
-
-        foreach($modes as $mode) {
-            $leaderboards[$mode] = $this->entityManager->getRepository(Game::class)->createQueryBuilder('g')
-                ->where('g.mode = :mode')
-                ->andWhere('g.completed = true')
-                ->orderBy('g.tries', 'ASC')
-                ->addOrderBy('g.completedAt - g.createdAt', 'ASC')
-                ->setParameter('mode', $mode)
-                ->getQuery()
-                ->getResult();
-        }
-
-        return $leaderboards;
+        return $this->entityManager->getRepository(Game::class)->getLeaderboards(self::MODES);
     }
 }
