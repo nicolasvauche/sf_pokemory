@@ -8,7 +8,7 @@
   border-top: 0.5rem solid $fourth;
 
   @include respondTo(md) {
-    @include displayFlex(space-between, center, 1.5rem);
+    @include displayFlex(space-between, center, 3rem);
     padding: 0.25rem 1.5rem;
   }
 
@@ -23,5 +23,11 @@
     8px 8px 0 $primary;
     letter-spacing: 2px;
     text-decoration: none;
+    transform: translateY(0.5rem) rotate(5deg);
+    transition: all 0.5s;
+
+    &:hover {
+      transform: translateY(0) rotate(0);
+    }
   }
 }

@@ -48,12 +48,17 @@ cartes. Les joueurs peuvent suivre leur progression et voir leur classement en f
     php bin/console doctrine:fixtures:load
     ```
 
-5. Lancez le serveur Symfony :
+5. Générez le CSS :
+    ```bash
+    php bin/console sass:build
+    ```
+
+6. Lancez le serveur Symfony :
     ```bash
     symfony server:start
     ```
 
-6. Accédez à l'application dans votre navigateur à l'adresse [http://localhost:8000](http://localhost:8000).
+7. Accédez à l'application dans votre navigateur à l'adresse [http://localhost:8000](http://localhost:8000).
 
 ## Utilisation
 

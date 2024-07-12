@@ -13,7 +13,7 @@
         </div>
     {% elseif pokemons | length == 0 %}
         <div class="app-alert warning">
-            Pas assez Pokémon disponible ! Demande à l'administrateur de les charger.
+            Pas assez de Pokémon disponibles ! Demande à l'administrateur de les charger.
         </div>
     {% else %}
         {% if is_granted("ROLE_ADMIN") %}
