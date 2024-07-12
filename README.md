@@ -11,7 +11,7 @@ cartes. Les joueurs peuvent suivre leur progression et voir leur classement en f
   progression.
 - **Cartes Pokémon** : Les cartes affichent des Pokémon avec leur image et leur nom.
 - **Authentification** : Système d'authentification pour que seuls les utilisateurs connectés puissent jouer.
-- **Gestion des Pokémon** : Récupération des informations des Pokémon via l'API Pokémon.
+- **Gestion des Pokémon** : Récupération des informations des Pokémon via l'[API Pokémon](https://pokeapi.co/).
 - **Classement** : Classement global des joueurs par niveau de jeu.
 - **Administration** : Les administrateurs peuvent gérer les données des Pokémon.
 
