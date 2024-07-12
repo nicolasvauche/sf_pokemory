@@ -10,6 +10,11 @@
     text-align: left;
   }
 
+  a {
+    color: $secondary;
+    text-decoration: none;
+  }
+
   .copyrights {
     font-size: 0.85rem;
 
@@ -20,10 +25,5 @@
 
   .legals {
     font-size: 0.85rem;
-
-    a {
-      color: $white;
-      text-decoration: none;
-    }
   }
 }
