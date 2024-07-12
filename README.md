@@ -66,7 +66,7 @@ cartes. Les joueurs peuvent suivre leur progression et voir leur classement en f
 
 1. Connectez-vous en tant qu'administrateur :
 
-    - admin@pokemory.com | admin,
+    - admin@pokemory.com | admin
 
 2. Accédez à la page d'administration pour charger les Pokémon dans la base de données.
 
@@ -74,7 +74,7 @@ cartes. Les joueurs peuvent suivre leur progression et voir leur classement en f
 
 1. Inscrivez-vous ou connectez-vous en tant que joueur :
 
-    - player@pokemory.com | player,
+    - player@pokemory.com | player
     - player2@pokemory.com | player
 
 2. Choisissez un mode de jeu (Débutant, Avancé, Expert).
