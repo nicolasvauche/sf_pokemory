@@ -93,6 +93,16 @@ cartes. Les joueurs peuvent suivre leur progression et voir leur classement en f
     php bin/console cache:clear
     ```
 
+- Compiler le sass en mode dev (en temps réel) :
+    ```bash
+    php bin/console sass:build --watch
+    ```
+
+- Compiler les assets en mode prod :
+    ```bash
+    php bin/console asset-map:compile
+    ```
+
 ## Contributions
 
 Les contributions sont les bienvenues ! Si vous souhaitez contribuer, veuillez créer une branche à partir de `main`,
