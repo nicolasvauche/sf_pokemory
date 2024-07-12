@@ -20,7 +20,7 @@ cartes. Les joueurs peuvent suivre leur progression et voir leur classement en f
 - PHP 8.2.x
 - Composer 2.5.x
 - Symfony CLI 5.x
-- MySQL 8.x ou MariaDB 11.x
+- MySQL 8.x ou MariaDB 11.x ([MariaDB avec Docker Compose](https://github.com/nicolasvauche/docker_mariaDB))
 
 ## Installation
 
