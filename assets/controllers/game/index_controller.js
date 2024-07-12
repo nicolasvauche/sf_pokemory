@@ -61,7 +61,7 @@ export default class extends Controller {
                     if (this.foundPairs.length === this.cardTargets.length) {
                         this.completeGame();
                     }
-                }, 1000);
+                }, 1500);
             } else {
                 setTimeout(() => {
                     this.playSound(this.failedSound);
@@ -70,7 +70,7 @@ export default class extends Controller {
                         this.resetFlippedCards();
                         this.incrementTries();
                     }, 1000);
-                }, 1000);
+                }, 1500);
             }
         }
     }
