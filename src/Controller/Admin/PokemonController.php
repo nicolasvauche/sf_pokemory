@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Repository\PokemonRepository;
 use App\Service\PokemonService;
+use Doctrine\DBAL\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -18,6 +19,9 @@ class PokemonController extends AbstractController
         ]);
     }
 
+    /**
+     * @throws Exception
+     */
     #[Route('/administration/pokemon/charger', name: 'app_admin_pokemon_fetch')]
     public function fetch(PokemonService $pokemonService): Response
     {
